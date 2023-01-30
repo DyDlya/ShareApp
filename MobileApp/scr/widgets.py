@@ -33,3 +33,5 @@ class RootContainer(WidgetsFound, AnchorLayout):
         """
         Builder.load_file(str(self.uixPath / "RootContainer.kv"))  # Подгружается экран авторизации
         AnchorLayout.__init__(self, **kwargs)
+    def onLogin(self):
+        print(f"Hello, {str(self.app.root.ids.loginTF.text)}")

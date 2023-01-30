@@ -2,39 +2,42 @@
 
 
 <RootContainer>:
-    canvas.before:
-        Color:
-            rgba: 1, 1, 1, 1
-        Rectangle:
-            pos: self.pos
-            size: self.size
 
-
-    BoxLayout:
-        size_hint: 0.7,0.2
-        size_hint_max_x: 350
-        size_hint_min_x: 299
-        size_hint_max_y: 242
-        size_hint_min_y: 170
-        spacing: 10
+    MDCard:        
+        size_hint: 0.4,0.6
+        spacing: 4
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 2
         orientation: "vertical"
-        TextInput:
-            multiline: False
-            focus: True
-            hint_text: "Логин"
-            size: 299,60
+        padding: 35
 
-            pos_hint: {'center_x':0.5 }
-        TextInput:
-            multiline: False
-            size: 299,60
+        MDLabel: # Авторизация
+            
+            haling: "center"
+            theme_text_color: "Custom"
+            text_color: "grey"
+            text: "Авторизация"
+            font_size: 36
 
-
-            hint_text: "Пароль"
-            pos_hint: {'center_x':0.5 }
+        MDTextField: # Поле ввода логина   ]
+            id: loginTF    
+            hint_text: "Введите логин"
+            icon_right: "account"
+            helper_text_mode: "on_focus"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            
+        MDTextField: # Поле ввода пароля
+            id: passwordTF
+            hint_text: "Введите пароль"
+            icon_right: "eye-off"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
             password: True
-        Button:
-            text: "Войти"
-            size: 299,60
-            pos_hint: {'center_x':0.5 }
+
+        MDFillRoundFlatButton: # Кнопка для входа
+            id: enterBTN
+            on_press: app.root.onLogin()
+            text: "Войти"            
+            md_bg_color: "grey"
+            size_hint_x: 0.4
+            pos_hint: {"center_x": 0.8, "center_y": 0.5}
     

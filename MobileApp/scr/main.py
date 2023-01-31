@@ -4,8 +4,9 @@ import yaml
 kivy.require('2.1.0')  # Версия Kivy
 
 from kivymd.app import MDApp
-from widgets import RootContainer
+from screens import LoginScreen, MainScreen, RegScreen
 from pathlib import *
+from kivy.uix.screenmanager import ScreenManager
 
 from kivy.config import Config
 
@@ -21,7 +22,12 @@ class MyApp(MDApp):
         super().__init__(**kwargs)
 
     def build(self):
-        return RootContainer(Path.cwd().parent)
+        sManager = ScreenManager()
+        sManager.add_widget(LoginScreen(name = "login_screen"))
+        sManager.add_widget(MainScreen(name = "main_screen"))
+        sManager.add_widget(RegScreen(name= "reg_screen"))
+        sManager.current = "login_screen"
+        return sManager
 
 
 def main():

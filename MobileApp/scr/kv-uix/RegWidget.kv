@@ -1,8 +1,6 @@
 #:kivy 2.1.0
 
-
-<RootContainer>:
-
+<RegWidget>:
     MDCard:        
         size_hint: 0.4,0.6
         spacing: 4
@@ -16,7 +14,7 @@
             haling: "center"
             theme_text_color: "Custom"
             text_color: "grey"
-            text: "Авторизация"
+            text: "Регистрация"
             font_size: 36
 
         MDTextField: # Поле ввода логина   ]
@@ -33,11 +31,17 @@
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
             password: True
 
-        MDFillRoundFlatButton: # Кнопка для входа
-            id: enterBTN
-            on_press: app.root.onLogin()
-            text: "Войти"            
-            md_bg_color: "grey"
-            size_hint_x: 0.4
-            pos_hint: {"center_x": 0.8, "center_y": 0.5}
+        BoxLayout:
+            spacing: 8                        
+            
+            MDFillRoundFlatButton: # Кнопка для входа
+                id: enterBTN
+                on_press: 
+                    root.onLog()
+                    app.root.current = "main_screen"
+                    app.root.transition.direction = "left"
+                text: "Войти"            
+                md_bg_color: "grey"
+                size_hint_x: 0.4
+                pos_hint: {"center_x": 0.8, "center_y": 0.5}
     

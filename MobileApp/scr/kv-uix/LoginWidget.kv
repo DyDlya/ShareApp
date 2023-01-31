@@ -1,0 +1,59 @@
+#:kivy 2.1.0
+
+<LoginWidget>:
+
+    MDCard:        
+        size_hint: 0.4,0.6
+        spacing: 4
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 2
+        orientation: "vertical"
+        padding: 35
+
+        MDLabel: # Авторизация
+            
+            haling: "center"
+            theme_text_color: "Custom"
+            text_color: "grey"
+            text: "Авторизация"
+            font_size: 36
+
+        MDTextField: # Поле ввода логина   ]
+            id: loginTF    
+            hint_text: "Введите логин"
+            icon_right: "account"
+            helper_text_mode: "on_focus"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            
+        MDTextField: # Поле ввода пароля
+            id: passwordTF
+            hint_text: "Введите пароль"
+            icon_right: "eye-off"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            password: True
+
+        BoxLayout:
+            spacing: 8
+                        
+            MDRoundFlatButton: # Кнопка для регистрации
+                id: regBTN
+                on_press:
+                    root.onReg()
+                    app.root.current = "reg_screen"
+                    app.root.transition.direction = "up"
+                text: "Зарегистрироваться"            
+                text_color:  128/255, 128/255, 128/255, 1
+                line_color:  128/255, 128/255, 128/255, 1
+                size_hint_x: 0.2
+                pos_hint: {"center_x": 0.8, "center_y": 0.5}
+            MDFillRoundFlatButton: # Кнопка для входа
+                id: enterBTN
+                on_press: 
+                    root.onLogin()
+                    app.root.current = "main_screen"
+                    app.root.transition.direction = "left"
+                text: "Войти"            
+                md_bg_color: "grey"
+                size_hint_x: 0.4
+                pos_hint: {"center_x": 0.8, "center_y": 0.5}
+    

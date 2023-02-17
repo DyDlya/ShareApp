@@ -2,7 +2,7 @@
 
 <RegWidget>:
     MDCard:        
-        size_hint: 0.4,0.6
+        size_hint: 0.7,0.6
         spacing: 4
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
         elevation: 2
@@ -38,8 +38,7 @@
                 id: enterBTN
                 on_press: 
                     root.onLog()
-                    app.root.current = "main_screen"
-                    app.root.transition.direction = "left"
+                    
                 text: "Войти"            
                 md_bg_color: "grey"
                 size_hint_x: 0.4

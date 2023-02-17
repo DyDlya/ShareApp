@@ -1,6 +1,6 @@
 from kivy.uix.screenmanager import Screen
 from widgets import LoginWidget
-from pathlib import *
+
 from kivy.lang import Builder
 from kivy.uix.anchorlayout import AnchorLayout
 

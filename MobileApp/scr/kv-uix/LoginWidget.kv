@@ -3,7 +3,7 @@
 <LoginWidget>:
 
     MDCard:        
-        size_hint: 0.4,0.6
+        size_hint: 0.7,0.6
         spacing: 4
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
         elevation: 2
@@ -20,6 +20,10 @@
 
         MDTextField: # Поле ввода логина   ]
             id: loginTF    
+            
+            
+            helper_text: "Не больше 40 символов"
+            max_text_length: 40 
             hint_text: "Введите логин"
             icon_right: "account"
             helper_text_mode: "on_focus"
@@ -27,6 +31,10 @@
             
         MDTextField: # Поле ввода пароля
             id: passwordTF
+            max_text_length: 20
+            
+            helper_text_mode: "on_error"
+            helper_text: "Не больше 20 символов"
             hint_text: "Введите пароль"
             icon_right: "eye-off"
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
@@ -50,8 +58,7 @@
                 id: enterBTN
                 on_press: 
                     root.onLogin()
-                    app.root.current = "main_screen"
-                    app.root.transition.direction = "left"
+                    
                 text: "Войти"            
                 md_bg_color: "grey"
                 size_hint_x: 0.4
